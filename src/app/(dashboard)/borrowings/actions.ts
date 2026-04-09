@@ -99,7 +99,7 @@ export async function borrowBookAction(formData: FormData) {
 
   await sql`
     INSERT INTO borrowings (copy_id, user_id, due_date)
-    VALUES (${copyId}, ${userId}, CURRENT_DATE + ${LOAN_DURATION_DAYS})
+    VALUES (${copyId}, ${userId}, CURRENT_DATE + ${LOAN_DURATION_DAYS}::int)
   `
 
   await sql`
